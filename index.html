@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELLE WOMEN | Elegance. Confidence. You.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #F8C6D8;
+            --secondary: #6B2C91;
+            --accent: #F8C62F;
+            --text-dark: #2B2B2B;
+            --bg-soft: #FFF6FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Improved Logo Styling */
+        .logo-mark {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), #fff);
+            border-radius: 12px 25px 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(107, 44, 145, 0.1);
+        }
+
+        .logo-text-top {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.25em;
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .logo-text-bottom {
+            letter-spacing: 0.5em;
+            font-size: 0.6rem;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Luxury Header */
+        nav {
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Refinement */
+        .hero-gradient {
+            background: radial-gradient(circle at top left, #F8C6D8 0%, #FFF6FA 100%);
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--secondary);
+            filter: blur(100px);
+            opacity: 0.08;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+        }
+
+        /* Gallery Overlays */
+        .gallery-img {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+            background: #eee;
+        }
+
+        .gallery-img img {
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .gallery-img:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(107, 44, 145, 0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+        }
+
+        .gallery-img:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Improved Navigation -->
+    <nav class="fixed w-full z-50 bg-white/70 border-b border-pink-100/50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Designer Logo -->
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="logo-mark group-hover:rotate-6 transition-transform duration-500">
+                    <span class="text-2xl font-black text-[#6B2C91] brand-font">A</span>
+                    <div class="absolute -top-1 -right-1 text-[#F8C62F]">
+                        <i data-lucide="crown" size="16" fill="currentColor"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="logo-text-top text-xl">AURELLE</span>
+                    <span class="logo-text-bottom">WOMEN</span>
+                </div>
+            </div>
+            
+            <!-- Refined Menu -->
+            <div class="hidden md:flex items-center gap-12 uppercase">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#collection" class="nav-link">Collection</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="hidden md:flex items-center gap-6">
+                <div class="h-6 w-[1px] bg-pink-200"></div>
+                <button class="relative text-[#6B2C91] hover:text-[#F8C6D8] transition-colors">
+                    <i data-lucide="shopping-bag" size="22"></i>
+                    <span class="absolute -top-2 -right-2 bg-[#F8C62F] text-[10px] font-bold px-1.5 py-0.5 rounded-full text-[#2B2B2B]">0</span>
+                </button>
+                <button class="px-7 py-3 bg-[#6B2C91] text-white text-[11px] tracking-[0.2em] font-bold rounded-full hover:shadow-lg hover:shadow-purple-200 transition-all uppercase">
+                    Shop Now
+                </button>
+            </div>
+
+            <button class="md:hidden text-[#6B2C91]">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Luxury Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 hero-gradient">
+        <div class="hero-blob top-20 right-20"></div>
+        <div class="hero-blob bottom-20 left-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Text Content -->
+            <div class="lg:col-span-6 space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/50 rounded-full border border-pink-200 text-[#6B2C91] text-xs font-bold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-[#F8C62F] animate-pulse"></span>
+                    New Spring Collection '24
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl font-bold leading-[1.1] text-[#6B2C91]">
+                    Discover <br>
+                    <span class="italic font-light text-[#F8C6D8] block">Your Inner</span>
+                    <span class="relative">
+                        Elegance
+                        <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 20" fill="none">
+                            <path d="M5 15C50 5 150 5 295 15" stroke="#F8C62F" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-[#2B2B2B]/70 max-w-lg leading-relaxed font-light">
+                    Where modern women find style, confidence, and timeless beauty — meticulously designed for the sophisticated soul.
+                </p>
+                
+                <div class="flex flex-wrap gap-5 pt-4">
+                    <button class="px-10 py-5 bg-[#6B2C91] text-white font-bold rounded-full hover:scale-105 hover:shadow-2xl transition-all flex items-center gap-3 group">
+                        Shop Collection
+                        <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <button class="px-10 py-5 glass-card text-[#6B2C91] font-bold hover:bg-white transition-all">
+                        Book Consultation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Visual Component -->
+            <div class="lg:col-span-6 flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-[500px]">
+                    <!-- Main Frame -->
+                    <div class="relative rounded-[40px] border-[12px] border-white shadow-2xl overflow-hidden floating">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800" alt="Elegance" class="w-full h-[600px] object-cover">
+                    </div>
+                    
+                    <!-- Floating Detail Cards -->
+                    <div class="absolute -bottom-10 -left-10 glass-card p-6 shadow-xl flex items-center gap-4">
+                        <div class="p-3 bg-[#F8C6D8] rounded-2xl text-[#6B2C91]">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-[#6B2C91]">Premium Silk</p>
+                            <p class="text-xs opacity-60">Limited Edition Pieces</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-20 -right-8 glass-card p-4 shadow-lg flex items-center gap-3">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-pink-100"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-purple-100"></div>
+                        </div>
+                        <span class="text-xs font-bold text-[#6B2C91]">1.2k+ Stylists</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 bg-white">
+        <div class="max-w-5xl mx-auto text-center space-y-12">
+            <h2 class="text-4xl md:text-6xl font-bold text-[#6B2C91]">Designed for Women, <br><span class="text-[#F8C62F] italic">Inspired by You</span></h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center text-left">
+                <div class="space-y-6">
+                    <p class="text-2xl font-light leading-relaxed text-[#2B2B2B]">
+                        Aurelle Women is a modern women-focused brand dedicated to empowering ladies through fashion, beauty, and lifestyle solutions.
+                    </p>
+                    <p class="text-[#2B2B2B]/60 leading-relaxed">
+                        We believe every woman deserves confidence, comfort, and elegance in everything she chooses. Our curated collections are more than just items; they are statements of self-love.
+                    </p>
+                </div>
+                <div class="bg-[#FFF6FA] p-12 rounded-[60px] border-t-8 border-[#F8C6D8] shadow-sm">
+                    <div class="w-12 h-12 bg-[#6B2C91] text-white rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="heart" size="20" fill="currentColor"></i>
+                    </div>
+                    <h4 class="font-bold text-[#6B2C91] mb-3 uppercase tracking-[0.2em] text-sm">Our Philosophy</h4>
+                    <p class="italic text-xl text-[#6B2C91]/80 leading-relaxed">"Fashion fades, but style is eternal. We provide the tools for your timeless story."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-24 px-6 bg-[#FFF6FA]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+            <!-- Card 1 -->
+            <div class="soft-card p-12 text-center group">
+                <div class="w-24 h-24 bg-[#F8C6D8] rounded-[30px] flex items-center justify-center text-[#6B2C91] mb-8 mx-auto group-hover:rotate-6 transition-transform">
+                    <i data-lucide="shirt" size="40"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Fashion & Styling</h3>
+                <p class="text-[#2B2B2B]/60 mb-6">Personalized fashion that reflects your true personality and enhances your natural grace.</p>
+                <a href="#" class="text-xs font-bold tracking-widest text-[#6B2C91] border-b-2 border-[#F8C62F] pb-1 uppercase">Discover More</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="soft-card p-12 text-center group translate-y-6">
+                <div class="w-24 h-24 bg-[#6B2C91] rounded-[30px] flex items-center justify-center text-[#F8C6D8] mb-8 mx-auto group-hover:-rotate-6 transition-transform">
+                    <i data-lucide="palette" size="40"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-[#6B2C91]">Beauty & Wellness</h3>
+                <p class="text-[#2B2B2B]/60 mb-6">Clean, modern beauty solutions designed for the health and radiance of today's women.</p>
+                <a href="#" class="text-xs font-bold tracking-widest text-[#6B2C91] border-b-2 border-[#F8C62F] pb-1 uppercase">Discover More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="soft-card p-12 text-center group">
+                <div class="w-24 h-24 bg-[#F8C6D8] rounded-[30px] flex items-center justify-center text-[#6B2C91] mb-8 mx-auto group-hover:rotate-6 transition-transform">
+                    <i data-lucide="shopping-bag" size="40"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Accessories</h3>
+                <p class="text-[#2B2B2B]/60 mb-6">Minimal, elegant accessories curated to perfectly complete your professional or casual look.</p>
+                <a href="#" class="text-xs font-bold tracking-widest text-[#6B2C91] border-b-2 border-[#F8C62F] pb-1 uppercase">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW COLLECTION GALLERY -->
+    <section id="collection" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#6B2C91] mb-4">The Aurelle Collection</h2>
+                    <p class="text-[#2B2B2B]/60">Handcrafted excellence for the modern icon.</p>
+                </div>
+                <div class="flex gap-4">
+                    <button class="w-12 h-12 rounded-full border border-pink-200 flex items-center justify-center hover:bg-[#6B2C91] hover:text-white transition-all"><i data-lucide="chevron-left"></i></button>
+                    <button class="w-12 h-12 rounded-full border border-pink-200 flex items-center justify-center hover:bg-[#6B2C91] hover:text-white transition-all"><i data-lucide="chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image 1 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1534030347209-c77ad3576a9d?auto=format&fit=crop&q=80&w=600" alt="Silk Dress" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">New Arrival</span>
+                        <h4 class="text-2xl brand-font">Midnight Silk Slip</h4>
+                        <p class="text-sm opacity-80 mt-2">Luxurious 100% pure silk, designed for evening elegance.</p>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600" alt="Casual Chic" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">Signature</span>
+                        <h4 class="text-2xl brand-font">Ivory Bloom Blazer</h4>
+                        <p class="text-sm opacity-80 mt-2">Structural perfection meets feminine softness.</p>
+                    </div>
+                </div>
+                <!-- Image 3 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=600" alt="Accessories" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">Essentials</span>
+                        <h4 class="text-2xl brand-font">Gilded Aura Tote</h4>
+                        <p class="text-sm opacity-80 mt-2">Sustainable leather with hand-finished gold accents.</p>
+                    </div>
+                </div>
+                <!-- Image 4 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?auto=format&fit=crop&q=80&w=600" alt="Summer Look" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">Summer '24</span>
+                        <h4 class="text-2xl brand-font">Azure Dream Dress</h4>
+                        <p class="text-sm opacity-80 mt-2">Flowy silhouette for golden hour memories.</p>
+                    </div>
+                </div>
+                <!-- Image 5 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1485462197664-7385e8aeb1cd?auto=format&fit=crop&q=80&w=600" alt="Wellness" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">Wellness</span>
+                        <h4 class="text-2xl brand-font">Pure Rose Elixir</h4>
+                        <p class="text-sm opacity-80 mt-2">Botanical skincare for the ultimate glow.</p>
+                    </div>
+                </div>
+                <!-- Image 6 -->
+                <div class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600" alt="Jewelry" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <span class="text-xs uppercase tracking-[0.4em] mb-2 text-[#F8C62F]">Finishing Touch</span>
+                        <h4 class="text-2xl brand-font">Solaris Hoops</h4>
+                        <p class="text-sm opacity-80 mt-2">18k Gold plated statement pieces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 px-6 bg-[#FFF6FA] relative overflow-hidden">
+        <div class="absolute -right-20 top-0 text-[#F8C6D8] opacity-10 rotate-12">
+            <i data-lucide="flower-2" size="400"></i>
+        </div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <h2 class="text-4xl font-bold text-center text-[#6B2C91] mb-20">Stories of Confidence</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="p-12 glass-card border-none bg-white/60">
+                    <div class="flex gap-1 text-[#F8C62F] mb-6">
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                    </div>
+                    <p class="text-xl italic mb-8 text-[#6B2C91]">“Aurelle Women made me feel confident and elegant every single day. The attention to detail in their styling is truly unmatched in the industry.”</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-200"></div>
+                        <div>
+                            <p class="font-bold text-[#6B2C91]">Priya Sharma</p>
+                            <p class="text-xs uppercase tracking-widest opacity-50">Verified Member</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-12 glass-card border-none bg-white/60">
+                    <div class="flex gap-1 text-[#F8C62F] mb-6">
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                        <i data-lucide="star" size="16" fill="currentColor"></i>
+                    </div>
+                    <p class="text-xl italic mb-8 text-[#6B2C91]">“Beautiful designs and amazing quality. I have never felt more at home with a brand than I do with Aurelle. Totally in love!”</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200"></div>
+                        <div>
+                            <p class="font-bold text-[#6B2C91]">Ananya Verma</p>
+                            <p class="text-xs uppercase tracking-widest opacity-50">Verified Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer CTA -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto bg-[#6B2C91] rounded-[80px] p-16 md:p-24 text-center text-white relative overflow-hidden group">
+            <div class="absolute inset-0 opacity-10 group-hover:scale-110 transition-transform duration-[10s]">
+                <img src="https://images.unsplash.com/photo-1445205170230-053b830c6050?auto=format&fit=crop&q=80&w=1200" alt="Fabric" class="w-full h-full object-cover">
+            </div>
+            
+            <h2 class="text-5xl md:text-7xl font-bold mb-10 relative z-10">Step Into <br>Elegance Today</h2>
+            <button class="bg-[#F8C62F] text-[#2B2B2B] px-16 py-6 rounded-full text-lg font-bold shadow-2xl relative z-10 hover:scale-105 transition-transform flex items-center gap-3 mx-auto">
+                ✨ Explore Collection
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#FFF6FA] border-t border-pink-100 pt-32 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
+            <div class="col-span-2 space-y-8">
+                <div class="flex items-center gap-4">
+                    <div class="logo-mark">
+                        <span class="text-xl font-black text-[#6B2C91] brand-font">A</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="logo-text-top text-lg">AURELLE</span>
+                        <span class="logo-text-bottom">WOMEN</span>
+                    </div>
+                </div>
+                <p class="text-gray-500 max-w-sm text-lg font-light leading-relaxed">Empowering modern women through timeless fashion, botanical beauty, and sophisticated lifestyle solutions.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-[#6B2C91] hover:text-[#F8C62F] transition-all"><i data-lucide="instagram" size="24"></i></a>
+                    <a href="#" class="text-[#6B2C91] hover:text-[#F8C62F] transition-all"><i data-lucide="facebook" size="24"></i></a>
+                    <a href="#" class="text-[#6B2C91] hover:text-[#F8C62F] transition-all"><i data-lucide="pinterest" size="24"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-[#6B2C91] mb-8 uppercase tracking-[0.2em] text-sm">Navigation</h4>
+                <ul class="space-y-5 text-gray-500 font-medium">
+                    <li><a href="#" class="hover:text-[#6B2C91] transition-colors">Spring Catalog</a></li>
+                    <li><a href="#" class="hover:text-[#6B2C91] transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-[#6B2C91] transition-colors">The Atelier</a></li>
+                    <li><a href="#" class="hover:text-[#6B2C91] transition-colors">Consultations</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-[#6B2C91] mb-8 uppercase tracking-[0.2em] text-sm">Contact</h4>
+                <ul class="space-y-5 text-gray-500 font-medium">
+                    <li class="flex items-center gap-3"><i data-lucide="mail" size="18" class="text-[#F8C62F]"></i> hello@aurelle.com</li>
+                    <li class="flex items-center gap-3"><i data-lucide="phone" size="18" class="text-[#F8C62F]"></i> +1 800 AURELLE</li>
+                    <li class="flex items-center gap-3"><i data-lucide="map-pin" size="18" class="text-[#F8C62F]"></i> Fifth Ave, NY</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-xs tracking-widest border-t border-pink-100 pt-12">
+            &copy; 2024 AURELLE WOMEN LUXURY GROUP. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Reveal animations on scroll
+        const reveal = () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(s => {
+                const top = s.getBoundingClientRect().top;
+                if (top < window.innerHeight - 150) {
+                    s.style.opacity = '1';
+                    s.style.transform = 'translateY(0)';
+                    s.style.transition = 'all 1s ease-out';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        window.onload = reveal;
+    </script>
+</body>
+</html>
